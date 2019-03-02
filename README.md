@@ -2,8 +2,8 @@ Yii2 Aliyun OSS
 ===============
 Yii2 阿里云 OSS
 
-[![Latest Stable Version](https://poser.pugx.org/yiier/yii2-aliyun-oss/v/stable)](https://packagist.org/packages/yiier/yii2-aliyun-oss) 
-[![Total Downloads](https://poser.pugx.org/yiier/yii2-aliyun-oss/downloads)](https://packagist.org/packages/yiier/yii2-aliyun-oss) 
+[![Latest Stable Version](https://poser.pugx.org/teddymail/yii2-aliyun-oss/v/stable)](https://packagist.org/packages/teddymail/yii2-aliyun-oss) 
+[![Total Downloads](https://poser.pugx.org/teddymail/yii2-aliyun-oss/downloads)](https://packagist.org/packages/teddymail/yii2-aliyun-oss) 
 [![Latest Unstable Version](https://poser.pugx.org/yiier/yii2-aliyun-oss/v/unstable)](https://packagist.org/packages/yiier/yii2-aliyun-oss) 
 [![License](https://poser.pugx.org/yiier/yii2-aliyun-oss/license)](https://packagist.org/packages/yiier/yii2-aliyun-oss)
 
