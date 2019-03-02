@@ -1,16 +1,11 @@
 <?php
-/**
- * author     : forecho <caizhenghai@gmail.com>
- * createTime : 2016/3/16 18:56
- * description:
- */
-
 namespace yiier\AliyunOSS;
 
 use OSS\OssClient;
 use yii\base\Component;
 use Yii;
 use yii\base\InvalidConfigException;
+use yii\helpers\ArrayHelper;
 
 class OSS extends Component
 {
@@ -33,6 +28,11 @@ class OSS extends Component
      * @var string OSS内网地址, 如:oss-cn-hangzhou-internal.aliyuncs.com
      */
     public $lanDomain;
+
+    /**
+     * @var string 对外输出url，例如：file.xxx.com
+     */
+    public $outDomain;
 
     /**
      * @var string OSS外网地址, 如:oss-cn-hangzhou.aliyuncs.com
@@ -188,5 +188,36 @@ class OSS extends Component
             $objectKeys[] = $objectSummary->getKey();
         }
         return $objectKeys;
+    }
+
+    /**
+     * 生成验证签名url默认一个小时有效期
+     * @param $fileName  文件名
+     * @param int $timeout 生存时间
+     *
+     */
+    public function signUrl($fileName, $timeout=3600)
+    {
+        $signUrl = $this->getClient()->signUrl($this->bucket, $fileName, $timeout);
+
+        if (!empty($this->outDomain)) {
+            $parseUrl = parse_url($signUrl);
+            $schema = ArrayHelper::getValue($parseUrl, 'schema', 'http');
+            $path = ArrayHelper::getValue($parseUrl, 'path', '');
+            $query = ArrayHelper::getValue($parseUrl, 'query', '');
+            return "{$schema}://{$this->outDomain}{$path}?{$query}";
+        }
+        return $signUrl;
+    }
+
+    /**
+     * 代理方法
+     * @param string $method_name
+     * @param array $args
+     * @return mixed
+     */
+    public function __call($method_name, $args)
+    {
+        return call_user_func_array([$this->getClient(), $method_name], $args);
     }
 }
