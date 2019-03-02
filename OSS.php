@@ -1,5 +1,5 @@
 <?php
-namespace yiier\AliyunOSS;
+namespace teddymail\AliyunOSS;
 
 use OSS\OssClient;
 use yii\base\Component;
