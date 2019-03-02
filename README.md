@@ -15,7 +15,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist yiier/yii2-aliyun-oss "*"
+php composer.phar require --prefer-dist teddymail/yii2-aliyun-oss "*"
 ```
 
 or add
@@ -35,7 +35,7 @@ Usage
 ```php
 components => [
     'oss' => [
-        'class' => 'yiier\AliyunOSS\OSS',
+        'class' => 'teddymail\AliyunOSS\OSS',
         'accessKeyId' => 'xxxxx', // 阿里云OSS AccessKeyID
         'accessKeySecret' => 'xxxx', // 阿里云OSS AccessKeySecret
         'bucket' => 'xxx', // 阿里云的bucket空间
